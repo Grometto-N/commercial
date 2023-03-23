@@ -7,7 +7,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Articles>
+ * @extends ServiceEntityRepository<Article>
  *
  * @method Article|null find($id, $lockMode = null, $lockVersion = null)
  * @method Article|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,7 +18,7 @@ class ArticleRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Articles::class);
+        parent::__construct($registry, Article::class);
     }
 
     public function save(Article $entity, bool $flush = false): void
@@ -40,7 +40,7 @@ class ArticleRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Article[] Returns an array of Articles objects
+//     * @return Article[] Returns an array of Article objects
 //     */
 //    public function findByExampleField($value): array
 //    {
