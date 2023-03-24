@@ -4,7 +4,7 @@
 
 {% block body %}
     {# BARRE NAVIGATION #}
-    <nav class="navbar navbar-expand-sm navbar-dark bg-secondary ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary ">
             <div class="container-fluid">
                 {# Nom du site #}
                 <a class="navbar-brand" href="#">Site e-commerce</a>
@@ -48,30 +48,21 @@
     {# CONTENU #}
      <div class="container">
         <div class="row">
-            <div class="col-3">
-                <div class = "border border-dark mt-3 rounded-3">
-                    <div>
-                    Image
+            {% for article in dataArticle %}
+                {# CARD #}
+                <div class="col-lg-3  gx-3 gy-3">
+                    <div class="card border border-dark  rounded-3">
+                        <img src="{{ asset('/images/articles/demo.png') }}" class="card-img-top" alt="image">
+                        <div class="card-body">
+                            <div class="d-flex flex-row  justify-content-between p-2"> 
+                                <h4>{{article.name}}</h4>
+                                <h5>{{article.price}} €</h5>
+                            </div>
+                        </div>
+                        <a>Ajouter</a>
                     </div>
-                    <div class="d-flex flex-row  justify-content-between p-2">
-                        <h4>NOM</h4>
-                        <h5>Prix</h5>
-                    </div>
-                    <a>Ajouter</a>
                 </div>
-            </div>
-    <div class="col-3">
-      Deuxième colonne
+            {% endfor %}
+        </div>
     </div>
-    <div class="col-3">
-      3 colonne
-    </div>
-    <div class="col-3">
-      5 colonne
-    </div>
-    <div class="col-3">
-      6 colonne
-    </div>
-  </div>
-</div>
 {% endblock %}
