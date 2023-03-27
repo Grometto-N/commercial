@@ -59,7 +59,7 @@
                                 <h5>{{article.price}} €</h5>
                             </div>
                         </div>
-                        <a href={{ path('app_cart_add',{'id': article.id}) }}>Ajouter</a>
+                        <a href={{ path('app_cart_add',{'id': article.id, 'page' : 'app_home'}) }}>Ajouter</a>
                     </div>
                 </div>
             {% endfor %}

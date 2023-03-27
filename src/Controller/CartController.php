@@ -21,10 +21,11 @@ class CartController extends AbstractController
         ]);
     }
 
-    #[Route('/cart/add/{id}', name: 'app_cart_add')]
-    public function add($id, CartService $cartService)
+    #[Route('/cart/add/{id}/redirect/{page}', name: 'app_cart_add')]
+    public function add($id, $page, CartService $cartService)
     {
         $cartService->add($id);
-        return $this->redirectToRoute("homepage");
+        return $this->redirectToRoute($page);
     }
+
 }
