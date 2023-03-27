@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Hello CartController!{% endblock %}
 
 {% block body %}
     {# BARRE NAVIGATION #}
@@ -48,21 +48,22 @@
     {# CONTENU #}
      <div class="container">
         <div class="row">
-            {% for article in dataArticles %}
+            {% for item in dataCart %}
                 {# CARD #}
                 <div class="col-lg-3  gx-3 gy-3">
                     <div class="card border border-dark  rounded-3">
                         <img src="{{ asset('/images/articles/demo.png') }}" class="card-img-top" alt="image">
                         <div class="card-body">
                             <div class="d-flex flex-row  justify-content-between p-2"> 
-                                <h4>{{article.name}}</h4>
-                                <h5>{{article.price}} €</h5>
+                                <h4>{{item.article.name}}</h4>
+                                <h5>{{item.article.price}} €</h5>
                             </div>
                         </div>
-                        <a href={{ path('app_cart_add',{'id': article.id}) }}>Ajouter</a>
+                        <a href="#" >Delete</a>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
 {% endblock %}
+

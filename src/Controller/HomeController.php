@@ -10,6 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use Doctrine\ORM\EntityManagerInterface;
 
+
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
@@ -21,7 +22,7 @@ class HomeController extends AbstractController
         // envoie des données
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'dataArticle' => $dataArticles ,
+            'dataArticles' => $dataArticles ,
         ]);
     }
 }
