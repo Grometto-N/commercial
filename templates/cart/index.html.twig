@@ -61,7 +61,7 @@
                         </div>
                         {# quantité + ajout-suppression #}
                         <div class="d-flex flex-row  justify-content-center p-2"> 
-                            <a role="button" class="btn btn-outline-success">-</a> 
+                            <a role="button" class="btn btn-outline-success" href={{ path('app_cart_remove',{'id': item.article.id}) }}>-</a> 
                             <div class="p-2">{{item.quantity}}</div> 
                             <a role="button" class="btn btn-outline-success" href={{ path('app_cart_add',{'id': item.article.id, 'page' : 'app_cart'}) }}>+</a> 
                         </div>

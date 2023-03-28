@@ -24,6 +24,7 @@ class CartService
         $this->articleRepository = $articleRepository;
     }
 
+    // obtenir tous les articles du panier : infos + quantité
     public function getCartDatas():array
     {
         $cart = $this->session->get('cart',[]);
@@ -40,6 +41,7 @@ class CartService
         return $datasArticles;
     }
 
+    // ajout d'un article
     public function add($id):void 
     {
         $cart = $this->session->get('cart',[]);
@@ -48,6 +50,23 @@ class CartService
             $cart[$id] = 1;
         }else{
             $cart[$id]++;
+        }
+
+        $this->session->set('cart', $cart);
+    }
+
+    // suppression d'un article
+    public function remove($id):void 
+    {
+        $cart = $this->session->get('cart',[]);
+
+        if(!empty($cart[$id]))
+        {
+            if($cart[$id]>1){
+                $cart[$id]--;
+            }else{
+                $cart[$id] = 0;
+            }
         }
 
         $this->session->set('cart', $cart);
