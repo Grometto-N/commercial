@@ -4,8 +4,51 @@
 
 
 {% block body %}
-<div class = "container bg-primary">
-<form  class="g-col-3 g-start-5 " method="post">
+{# BARRE NAVIGATION #}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary ">
+            <div class="container-fluid">
+                {# Nom du site #}
+                <a class="navbar-brand" href="#">Site e-commerce</a>
+                {# Menu Hamburger pour responsive #}
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {#  menus #}
+
+                <div class="collapse navbar-collapse d-flex justify-content-between">
+                    {#  Catégories #}
+                    <ul class="navbar-nav collapse navbar-collapse">
+                        <li class="nav-item ">
+                            <a class="nav-link active" aria-current="page" href="#">Categorie n°1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Categorie n°2</a>
+                        </li>
+                    </ul>
+                    {#  Barre de recherche #}
+                    <div class = "collapse navbar-collapse">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-light" type="submit">Search</button>
+                        </form>
+                    </div>
+                    {# Connexion + panier #}
+                    <div class="collapse navbar-collapse  flex-row-reverse" >
+                        <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href={{path('app_cart')}}>Panier</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href={{path('app_login')}}>Connexion</a>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </nav>
+
+<div class = "container-md  mt-5">
+    <form  method="post">
 
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -16,33 +59,66 @@
             You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
     {% endif %}
-            <div class="row">
-                <h1 id="title" >Please sign in</h1>
+    <div class = "container col-md-5 ">
+        <div class =" container bg-primary p-4 text-secondary border border-secondary rounded-2"  style="--bs-bg-opacity: .1;">
+            {# TITRE #}
+            <div class="col-md-12 text-center my-2" >
+                <h2 >Connexion</h2>
             </div>
-            <div class="row">
+            {# EMAIL #}
+            <div class="col-md-12 py-3 my-2">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" value="{{ last_username }}" name="email" id="inputEmail" autocomplete="email" required autofocus>
+            </div>
+            {# PASSWORD #}
+            <div class="col-md-12 py-3 my-2">
+                <label for="inputPassword4" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" name="password" autocomplete="current-password" required>
+            </div>
+            <input type="hidden" name="_csrf_token"value="{{ csrf_token('authenticate') }}">
+            {# BOUTON #}
+            <div class="col-md-12 mt-2 pt-3">
+                <button type="submit" class="btn btn-primary">
+                    Connexion
+                </button>
+            </div>
+        </div>
+        {# MESSAGE  #}
+        <div class="mt-1">
+           Nouveau sur Mon site e-commerce ? <a href="#" id="redirect">Créez votre compte</a>.
+        </div>
+    </div>
+
+            {# <div class = "grid bg-primary">
+                <div class="col-lg-3" >
+                    <h1 id="title" >Please sign in</h1>
+                </div>
+                  <div class="row bg-success"> #}
                 {# EMAIL #}
-                <div class="field">
+                {# <div class="field">
                     <label for="inputEmail">Email</label>
                     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="inputField" autocomplete="email" required autofocus>
                 </div>
             </div>
-            <div class="row">
+            </div>
+            
+          
+            <div class="row"> #}
                 {# PASSWORD #}
-                <div class="field">
+                {# <div class="field">
                     <label for="inputPassword">Password</label>
                     <input type="password" name="password" id="inputPassword" class="inputField" autocomplete="current-password" required>
                 </div>
                 <input type="hidden" name="_csrf_token"value="{{ csrf_token('authenticate') }}">
             </div>
-            <div class="row">
+            <div class="row"> #}
             {# BOUTON #}
-            <button class="btnLog" type="submit">
+            {# <button class="btnLog" type="submit">
             Sign in
             </button>
-        </div>
-</form>
-    <div id="message">
-    New to ???? ? <a href="#" id="redirect">Create an account</a>.
-    </div>
+        </div> #}
+        
+    </form>
+
 </div>
 {% endblock %}
