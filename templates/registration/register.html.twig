@@ -6,8 +6,63 @@
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
+    <div class = "container-md  mt-5">
+    <form  method="post">
 
-    <h1>Register</h1>
+    {# {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %} #}
+    <div class = "container col-md-5 ">
+        <div class =" container bg-primary p-4 text-secondary border border-secondary rounded-2"  style="--bs-bg-opacity: .1;">
+            {# TITRE #}
+            <div class="col-md-12 text-center my-1" >
+                <h2 >Création de compte</h2>
+            </div>
+             {# NOM #}
+            <div class="col-md-12 py-1 my-1">
+                <label  class="form-label">Nom</label>
+                <input  class="form-control"  name="lastname"  required autofocus>
+            </div>
+             {# PRENOM #}
+            <div class="col-md-12 py-1 my-1">
+                <label  class="form-label">Prénom</label>
+                <input  class="form-control"  name="firstname"  >
+            </div>
+            {# EMAIL #}
+            <div class="col-md-12 py-1 my-1">
+                <label for="inputEmail" class="form-label">Email</label>
+                <input type="email" class="form-control"  name="email" id="inputEmail" autocomplete="email" required autofocus>
+            </div>
+            {# PASSWORD #}
+            <div class="col-md-12 py-1 my-1">
+                <label for="inputPassword" class="form-label">Password</label>
+                <input type="password" class="form-control" id="inputPassword4" name="password" autocomplete="current-password" required>
+            </div>
+            <input type="hidden" name="_csrf_token"value="{{ csrf_token('authenticate') }}">
+            {# BOUTON #}
+            <div class="col-md-12 mt-2 pt-2">
+                <button type="submit" class="btn btn-primary">
+                    Créer
+                </button>
+            </div>
+        </div>
+        {# MESSAGE  #}
+        <div class="mt-1">
+           Déjà inscrit sur Mon site e-commerce ? <a href="#" id="redirect">Connexion à votre compte</a>.
+        </div>
+    </div>
+    
+    </form>
+
+</div>
+
+    {# <h1>Register</h1>
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.email) }}
@@ -17,5 +72,5 @@
         {{ form_row(registrationForm.agreeTerms) }}
 
         <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+    {{ form_end(registrationForm) }} #}
 {% endblock %}
