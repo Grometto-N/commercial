@@ -1,0 +1,42 @@
+ {# BARRE NAVIGATION #}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary ">
+            <div class="container-fluid">
+                {# Nom du site #}
+                <a class="navbar-brand" href="#">Site e-commerce</a>
+                {# Menu Hamburger pour responsive #}
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {#  menus #}
+
+                <div class="collapse navbar-collapse d-flex justify-content-between">
+                    {#  Catégories #}
+                    <ul class="navbar-nav collapse navbar-collapse">
+                        <li class="nav-item ">
+                            <a class="nav-link active" aria-current="page" href="#">Categorie n°1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Categorie n°2</a>
+                        </li>
+                    </ul>
+                    {#  Barre de recherche #}
+                    <div class = "collapse navbar-collapse">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-light" type="submit">Search</button>
+                        </form>
+                    </div>
+                    {# Connexion + panier #}
+                    <div class="collapse navbar-collapse  flex-row-reverse" >
+                        <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href={{path('app_cart')}}>Panier</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href={{path('app_login')}}>Connexion</a>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </nav>
