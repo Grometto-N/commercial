@@ -8,7 +8,7 @@
     {% endfor %}
     <div class = "container-md  mt-5">
     <form  method="post">
-
+     {{ form_start(registrationForm) }}
     {# {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -57,7 +57,7 @@
            Déjà inscrit sur Mon site e-commerce ? <a href="#" id="redirect">Connexion à votre compte</a>.
         </div>
     </div>
-    
+    {{ form_end(registrationForm) }}
     </form>
 
 </div>
