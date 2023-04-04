@@ -7,23 +7,7 @@
         <div class="row">
             {% for item in dataCart %}
                 {# CARD #}
-                <div class="col-lg-3  gx-3 gy-3">
-                    <div class="card border border-dark  rounded-3">
-                        <img src="{{ asset('/images/articles/demo.png') }}" class="card-img-top p-4" alt="image">
-                        <div class="card-body">
-                            <div class="d-flex flex-row  justify-content-between p-2"> 
-                                <h4>{{item.article.name}}</h4>
-                                <h5>{{item.article.price}} €</h5>
-                            </div>
-                        </div>
-                        {# quantité + ajout-suppression #}
-                        <div class="d-flex flex-row  justify-content-center p-2"> 
-                            <a role="button" class="btn btn-outline-success" href={{ path('app_cart_remove',{'id': item.article.id,'page' : 'app_cart'}) }}>-</a> 
-                            <div class="p-2">{{item.quantity}}</div> 
-                            <a role="button" class="btn btn-outline-success" href={{ path('app_cart_add',{'id': item.article.id, 'page' : 'app_cart'}) }}>+</a> 
-                        </div>
-                    </div>
-                </div>
+                {%  include '/base/card.html.twig' with {article : item.article, quantity : item.quantity} only  %}
             {% endfor %}
         </div>
     </div>

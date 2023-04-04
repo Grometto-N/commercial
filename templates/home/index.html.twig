@@ -8,19 +8,7 @@
         <div class="row">
             {% for article in dataArticles %}
                 {# CARD #}
-                <div class="col-lg-3  gx-3 gy-3">
-                    <div class="card border border-dark  rounded-3">
-                        <img src="{{ asset('/images/articles/demo.png') }}" class="card-img-top p-4" alt="image">
-                        <div class="card-body">
-                            <div class="d-flex flex-row  justify-content-between p-2"> 
-                                <h4>{{article.name}}</h4>
-                                <h5>{{article.price|number_format(2,',') }} €</h5>
-                            </div>
-                        </div>
-                        {# Ajout d'articles #}  
-                        <a role="button" class="btn btn-outline-success m-2" href={{ path('app_cart_add',{'id': article.id, 'page' : 'app_home'}) }}>Ajouter au panier</a> 
-                    </div>
-                </div>
+                {%  include '/base/card.html.twig' with {"article" : article, "quantity" : 0} only  %}
             {% endfor %}
         </div>
     </div>
