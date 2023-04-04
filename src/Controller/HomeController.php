@@ -18,11 +18,18 @@ class HomeController extends AbstractController
     {
         // récupération des articles depuis la BDD
         $dataArticles = $manager->getRepository(Article::class)->findAll(); 
-
+        //dd( $dataArticles);
+        // modification données pour l'affichage du prix
+    //    $write = function (Article $f){
+    //         $f->setPrice(10);
+    //         return $f;
+    //    };
+    //    $datasToDisplay = array_map($write,$dataArticles);
         // envoie des données
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'dataArticles' => $dataArticles ,
+             'dataArticles' => $dataArticles ,
+            // 'dataArticles' => $datasToDisplay,
         ]);
     }
 }
