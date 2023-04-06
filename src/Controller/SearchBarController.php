@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use App\Repository\ArticleRepository;
+use App\Form\SearchBarFormType;
 use App\Security\EmailVerifier;
 use App\Security\UserAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,5 +29,8 @@ class SearchBarController extends AbstractController
     //     $this->emailVerifier = $emailVerifier;
     // }
 
-   
+    public function index (ArticleRepository $repository)
+    {
+        $form = $this->createForm(SearchBarForm::class);
+    }
 }
